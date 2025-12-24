@@ -1,20 +1,31 @@
-# Move Package Configuration for Optimus - Simple Version
+# Move 2.0 Package Configuration for Optimus - Movement Network
+# Community-Run Banking System with DAOs
+#
+# IMPORTANT: Module Structure
+# - optimus::dao - DAO creation, membership, treasury management
+# - optimus::lending - Loan lifecycle and repayment tracking
+# - optimus::bnpl - Buy-now-pay-later arrangements with installments
+# - optimus::did - Decentralized identity with risk profiles
+# - optimus::test_utils - Testing utilities (test_only)
+#
+# Voting: Uses aptos_framework::voting (no custom governance module)
 
 [package]
 name = "Optimus"
-version = "1.0.0"
+version = "0.0.1"
 
 [addresses]
-stake_pool_addr = "0xc367c4aefe1bc6028e0a5981c63c85347fcde2547f487904addc6762f8b130de"
-initial_reward_creator_addr = "0xc367c4aefe1bc6028e0a5981c63c85347fcde2547f487904addc6762f8b130de"
-fa_obj_addr = "0xa"
+optimus = "0x1"
+
+[dependencies.MoveStdlib]
+git = "https://github.com/movementlabsxyz/aptos-core.git"
+rev = "movement"
+subdir = "aptos-move/framework/move-stdlib"
 
 [dependencies.AptosFramework]
-git = "https://github.com/aptos-labs/aptos-core.git"
-rev = "mainnet"
+git = "https://github.com/movementlabsxyz/aptos-core.git"   
+rev = "movement"
 subdir = "aptos-move/framework/aptos-framework"
 
-[dependencies.AptosStdlib]
-git = "https://github.com/aptos-labs/aptos-core.git"
-rev = "mainnet"
-subdir = "aptos-move/framework/aptos-stdlib"
+[dev-addresses]
+
